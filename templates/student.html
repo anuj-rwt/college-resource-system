@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Portal</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+      <h2>🎓 Student Resource Portal</h2>
+
+      {% if level != "files" %}
+          <h3>Select {{ level|capitalize }}</h3>
+          <ul>
+              {% for option in options %}
+                  <li>
+                      <a href="/student/{{ '/'.join(path + [option]) }}">{{ option }}</a>
+                  </li>
+              {% endfor %}
+          </ul>
+      {% else %}
+          <h3>Available Files:</h3>
+          <ul>
+              {% for f in files %}
+                  <li><a href="{{ f.filepath }}" target="_blank">{{ f.filename }}</a> (Uploaded: {{ f.upload_time }})</li>
+              {% endfor %}
+          </ul>
+          <a class="back-link" href="/student">⬅ Go Back to Resource Types</a>
+      {% endif %}
+  </div>
+</body>
+</html>
+
+

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Faculty Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h2>👨‍🏫 Faculty Upload Portal</h2>
+
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+      <label>Resource Type:</label>
+      <select name="resource_type" required>
+        <option value="">Select Type</option>
+        <option value="PYQ">PYQ</option>
+        <option value="Notes">Notes</option>
+        <option value="Assignments">Assignments</option>
+      </select>
+
+      <label>Course:</label>
+      <input type="text" name="course" placeholder="e.g. B.Tech CSE" required>
+
+      <label>Year:</label>
+      <select name="year" required>
+        <option value="">Select Year</option>
+        <option value="1st">1st Year</option>
+        <option value="2nd">2nd Year</option>
+        <option value="3rd">3rd Year</option>
+        <option value="4th">4th Year</option>
+      </select>
+
+      <label>Semester:</label>
+      <select name="semester" required>
+        <option value="">Select Semester</option>
+        <option value="1">Sem 1</option>
+        <option value="2">Sem 2</option>
+        <option value="3">Sem 3</option>
+        <option value="4">Sem 4</option>
+        <option value="5">Sem 5</option>
+        <option value="6">Sem 6</option>
+        <option value="7">Sem 7</option>
+        <option value="8">Sem 8</option>
+      </select>
+
+      <label>Exam Type:</label>
+      <select name="exam_type" required>
+        <option value="">Select Exam Type</option>
+        <option value="Mid">Mid</option>
+        <option value="End">End</option>
+        <option value="Assignment">Assignment</option>
+      </select>
+
+      <label>Upload PDF:</label>
+      <input type="file" name="pdfFile" accept=".pdf" required>
+
+      <button type="submit">Upload</button>
+    </form>
+
+    <a class="back-link" href="/">⬅ Logout</a>
+  </div>
+</body>
+</html>
