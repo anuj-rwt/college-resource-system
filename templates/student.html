@@ -22,13 +22,17 @@
           <h3>Available Files:</h3>
           <ul>
               {% for f in files %}
-                  <li><a href="{{ f.filepath }}" target="_blank">{{ f.filename }}</a> (Uploaded: {{ f.upload_time }})</li>
+                  <a href="{{ url_for('uploaded_file', filename=f.filename) }}" target="_blank">{{ f.filename }}</a>
+
               {% endfor %}
           </ul>
-          <a class="back-link" href="/student">⬅ Go Back to Resource Types</a>
+          <a class="back-link" href="{{ url_for('student.student_dashboard') }}">⬅ Go Back to Resource Types</a>
       {% endif %}
+      <p><a href="{{ url_for('auth.logout') }}">Logout</a></p>
   </div>
 </body>
 </html>
+
+
 
 
